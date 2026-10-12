@@ -1,4 +1,4 @@
-:HL["/balint-lilla-portfolio/_next/static/chunks/0-crmgjnti8ix.css","style"]
+:HL["/balint-lilla-portfolio/_next/static/chunks/0ixel3on7aea2.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"T9xaXG4hrvEpqvZwl26KQ","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"aQ9YoXV87OZcXhy-ht-Se","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
