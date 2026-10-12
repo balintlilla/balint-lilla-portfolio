@@ -1,26 +1,178 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mist: #eef2f4;
+  --mist-elevated: #f7f9fa;
+  --ink: #0b1220;
+  --slate: #5b6577;
+  --teal: #0f766e;
+  --teal-soft: #5eead4;
+  --line: color-mix(in oklab, var(--ink) 12%, transparent);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-mist: var(--mist);
+  --color-mist-elevated: var(--mist-elevated);
+  --color-ink: var(--ink);
+  --color-slate: var(--slate);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-syne);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--mist);
+  color: var(--ink);
+  font-family: var(--font-source-sans), "Segoe UI", sans-serif;
+  background-image:
+    radial-gradient(1200px 600px at 10% -10%, rgb(15 118 110 / 0.1), transparent 55%),
+    radial-gradient(900px 500px at 95% 8%, rgb(11 18 32 / 0.06), transparent 50%),
+    linear-gradient(180deg, #e8eef1 0%, var(--mist) 28%, #f4f7f8 100%);
+  background-attachment: fixed;
+}
+
+.font-display {
+  font-family: var(--font-syne), "Segoe UI", sans-serif;
+}
+
+.section-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.section-title {
+  font-family: var(--font-syne), "Segoe UI", sans-serif;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.section-copy {
+  color: var(--slate);
+  line-height: 1.65;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--mist);
+}
+
+.btn-primary:hover {
+  background: color-mix(in oklab, var(--ink) 88%, var(--teal));
+}
+
+.btn-ghost {
+  border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+  color: var(--ink);
+  background: rgb(255 255 255 / 0.35);
+}
+
+.btn-ghost:hover {
+  border-color: color-mix(in oklab, var(--ink) 35%, transparent);
+  background: rgb(255 255 255 / 0.7);
+}
+
+.btn-on-dark {
+  background: var(--mist);
+  color: var(--ink);
+}
+
+.btn-on-dark:hover {
+  background: white;
+}
+
+.btn-ghost-on-dark {
+  border: 1px solid rgb(238 242 244 / 0.35);
+  color: var(--mist);
+  background: rgb(238 242 244 / 0.08);
+}
+
+.btn-ghost-on-dark:hover {
+  border-color: rgb(238 242 244 / 0.55);
+  background: rgb(238 242 244 / 0.14);
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
+  background: rgb(255 255 255 / 0.45);
+  color: var(--slate);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 0.55rem;
+  border-radius: 0.35rem;
+}
+
+.skill-chip-strong {
+  color: var(--ink);
+  border-color: color-mix(in oklab, var(--teal) 35%, transparent);
+  background: color-mix(in oklab, var(--teal) 8%, white);
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgb(11 18 32 / 0.82) 0%,
+      rgb(11 18 32 / 0.62) 38%,
+      rgb(11 18 32 / 0.28) 62%,
+      rgb(11 18 32 / 0.12) 100%
+    ),
+    linear-gradient(180deg, rgb(11 18 32 / 0.28) 0%, transparent 40%, rgb(11 18 32 / 0.45) 100%);
+}
+
+.contact-glow {
+  position: absolute;
+  inset: auto -10% -40% auto;
+  width: 55%;
+  height: 80%;
+  background: radial-gradient(closest-side, rgb(15 118 110 / 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--teal) 35%, white);
+  color: var(--ink);
 }
