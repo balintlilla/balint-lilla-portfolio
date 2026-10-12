@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowDownRight } from "lucide-react";
 import { profile } from "@/data/profile";
+import { asset } from "@/lib/paths";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -13,17 +13,13 @@ export function Hero() {
       id="top"
       className="relative min-h-[100svh] overflow-hidden pt-16 md:pt-[4.25rem]"
     >
-      <div className="absolute inset-0">
-        <Image
-          src="/hero-bg.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="hero-scrim" aria-hidden="true" />
-      </div>
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${asset("/hero-bg.png")})` }}
+        role="img"
+        aria-label="Sunset over the ocean"
+      />
+      <div className="hero-scrim absolute inset-0" aria-hidden="true" />
 
       <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-6xl flex-col justify-end px-5 pb-12 pt-24 md:min-h-[calc(100svh-4.25rem)] md:justify-center md:px-8 md:pb-20 md:pt-10">
         <div className="max-w-2xl">
